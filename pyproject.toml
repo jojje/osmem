@@ -1,0 +1,56 @@
+
+[tool.poetry]
+name = "osmem"
+version = "0.0.0"
+description = "Shows memory usage information for process trees"
+keywords = ["memory", "ps", "process", "top", "tree"]
+
+authors =  ["jojje <tinjon+pypi@gmail.com>"]
+license = "GPLv2"
+readme = "README.md"
+
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: MacOS",
+    "Operating System :: Microsoft :: Windows",
+]
+
+packages = [
+    {include = "osmem"},
+]
+
+[tool.poetry.scripts]
+osmem = "osmem.cli:main"
+
+[tool.project.urls]
+"Homepage" = "https://github.com/jojje/osmem"
+"Bug Tracker" = "https://github.com/jojje/osmem/issues"
+
+[tool.poetry.dependencies]
+python = ">=3.9,<4"
+psutil = ">=5.7"
+
+[tool.poetry.group.dev.dependencies]
+pytest = ">=7.0.1"
+flake8 = ">=6.0.0"
+mypy = ">=0.790"
+tomli = "~2.0"
+poetry = "^1.6.1"
+poetry-git-version-plugin = "^1.0.8"
+
+[tool.poetry.plugins."poetry.masonry.api.version"]
+"poetry.masonry.api.version" = "poetry_git_version_plugin.plugin:version_from_git"
+
+[tool.flake8]
+max-line-length = 120
+exclude = [".git", "tests/*", ".venv"]
+max-complexity = 10
+
+[tool.distutils.bdist_wheel]
+universal = true
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
