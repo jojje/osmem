@@ -1,6 +1,16 @@
+[![unittest](https://img.shields.io/github/actions/workflow/status/jojje/osmem/push.yml?branch=master)](https://github.com/jojje/osmem/actions/workflows/push.yml)
+[![PyPI - latest](https://img.shields.io/pypi/v/osmem?label=latest&logo=pypi)](https://pypi.org/project/osmem)
+[![PyPI - Python](https://img.shields.io/pypi/pyversions/osmem?logo=pypi)](https://pypi.org/project/osmem)
+
 # osmem
 
 Shows memory usage information for process trees
+
+## Install
+
+```
+pip install osmem
+```
 
 ## Usage
 
