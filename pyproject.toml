@@ -1,7 +1,7 @@
 
 [tool.poetry]
 name = "osmem"
-version = "0.2.0"
+version = "0.3.0"
 description = "Shows memory usage information for process trees"
 keywords = ["memory", "ps", "process", "top", "tree"]
 
