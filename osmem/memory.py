@@ -55,16 +55,16 @@ def summarize_process_memory(format_size:FormatSize, format:FormatOutput, print_
 
 
 def get_format_lengths(format_size:FormatSize, processes: Dict[int, Dict]) -> Dict[str, int]:
-    max_pid, max_procmem, totalmem = 0, 0, 0
+    max_pid, max_procmem, totalmem, max_procname = 0, 0, 0, 0
     for p in processes.values():
         max_pid = max(max_pid, p['pid'])
         max_procmem = max(max_procmem, p['bytes'])
         totalmem += p['bytes']
-        # max_procname = max(max_procname, len(p['name']))
+        max_procname = max(max_procname, len(p['name']))
 
     return {
         'pid': len(str(max_pid)),
-        'procname': 0,  # looks better to not return the widest process name. Let it be the column header width instead
+        'procname': max_procname,
         'procmem': len(format_size(max_procmem)),
         'totalmem': len(format_size(totalmem)),
     }

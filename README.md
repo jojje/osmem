@@ -9,7 +9,7 @@ Find out the top-n types of processes consuming most memory.
 > osmem top -n 3
 
   PID  Aggregate  Process
------  ---------  -------
+-----  ---------  ------------
  1516   12582 MB  firefox.exe
  3408    9048 MB  Code.exe
  4432    3627 MB  cmdagent.exe
@@ -23,7 +23,7 @@ memory usage aggregates up through the process hierarchy.
 > osmem tree
 
   PID  Aggregate   Memory  Process
------  ---------  -------  -------
+-----  ---------  -------  -------------------
     0      12 MB     0 MB  System Idle Process
     4      12 MB     0 MB    System
   800                1 MB      smss.exe
@@ -46,32 +46,32 @@ command line arguments for each process. For instance, "svchost" on windows or "
 ```
 > osmem tree -c
 
-  PID  Aggregate   Memory  Process  Command
------  ---------  -------  -------  --------------------
+  PID  Aggregate   Memory  Process              Command
+-----  ---------  -------  -------------------  ------------------------------------------------------------------
     0      12 MB     0 MB  System Idle Process
     4      12 MB     0 MB    System
-  800                1 MB      smss.exe  \SystemRoot\System32\smss.exe
+  800                1 MB      smss.exe         \SystemRoot\System32\smss.exe
  3216               10 MB      MemCompression
   168                0 MB
   276              119 MB  Registry
-  688      11 MB     4 MB  cmd.exe  C:\Windows\System32\cmd.exe
- 1500                6 MB    conhost.exe  \??\C:\Windows\system32\conhost.exe 0x4
-  920    5498 MB     1 MB  wininit.exe  wininit.exe
- 1088    5484 MB     8 MB    services.exe  C:\Windows\system32\services.exe
-    8                5 MB      svchost.exe  C:\Windows\system32\svchost.exe -k LocalSystemNetworkRestricted -p
- 1144                4 MB      svchost.exe  C:\Windows\system32\svchost.exe -k LocalService -p -s nsi
+  688      11 MB     4 MB  cmd.exe              C:\Windows\System32\cmd.exe
+ 1500                6 MB    conhost.exe        \??\C:\Windows\system32\conhost.exe 0x4
+  920    5498 MB     1 MB  wininit.exe          wininit.exe
+ 1088    5484 MB     8 MB    services.exe       C:\Windows\system32\services.exe
+    8                5 MB      svchost.exe      C:\Windows\system32\svchost.exe -k LocalSystemNetworkRestricted -p
+ 1144                4 MB      svchost.exe      C:\Windows\system32\svchost.exe -k LocalService -p -s nsi
 ...
 ```
 
 ```
 $ osmem tree -c
 
-  PID  Aggregate  Memory  Process  Command
------  ---------  ------  -------  --------------------
+  PID  Aggregate  Memory  Process              Command
+-----  ---------  ------  -------------------  -----------------------------
     1     941 MB   11 MB  systemd  /sbin/init
-  369              46 MB    systemd-journald  /lib/systemd/systemd-journald
-  408               7 MB    systemd-udevd  /lib/systemd/systemd-udevd
-  501               4 MB    rpcbind  /sbin/rpcbind -f -w
+  369              46 MB    systemd-journald   /lib/systemd/systemd-journald
+  408               7 MB    systemd-udevd      /lib/systemd/systemd-udevd
+  501               4 MB    rpcbind            /sbin/rpcbind -f -w
 ...
 ```
 
