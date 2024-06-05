@@ -9,7 +9,7 @@ Find out the top-n types of processes consuming most memory.
 > osmem top -n 3
 
   PID  Aggregate  Process
------  ---------  ------------
+-----  ---------  --------------------
  1516   12582 MB  firefox.exe
  3408    9048 MB  Code.exe
  4432    3627 MB  cmdagent.exe
@@ -23,7 +23,7 @@ memory usage aggregates up through the process hierarchy.
 > osmem tree
 
   PID  Aggregate   Memory  Process
------  ---------  -------  -------------------
+-----  ---------  -------  --------------------
     0      12 MB     0 MB  System Idle Process
     4      12 MB     0 MB    System
   800                1 MB      smss.exe
@@ -47,7 +47,7 @@ command line arguments for each process. For instance, "svchost" on windows or "
 > osmem tree -c
 
   PID  Aggregate   Memory  Process              Command
------  ---------  -------  -------------------  ------------------------------------------------------------------
+-----  ---------  -------  -------------------  --------------------
     0      12 MB     0 MB  System Idle Process
     4      12 MB     0 MB    System
   800                1 MB      smss.exe         \SystemRoot\System32\smss.exe
@@ -67,7 +67,7 @@ command line arguments for each process. For instance, "svchost" on windows or "
 $ osmem tree -c
 
   PID  Aggregate  Memory  Process              Command
------  ---------  ------  -------------------  -----------------------------
+-----  ---------  ------  -------------------  --------------------
     1     941 MB   11 MB  systemd  /sbin/init
   369              46 MB    systemd-journald   /lib/systemd/systemd-journald
   408               7 MB    systemd-udevd      /lib/systemd/systemd-udevd
