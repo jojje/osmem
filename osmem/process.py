@@ -23,7 +23,6 @@ def get_processes(with_cmd=False) -> Dict[int, Dict]:
         # windows (task mgr) uses private bytes, wereas *nix relies on rss
         b = mem.private if hasattr(mem, 'private') else mem.rss
         exe = get(p, 'exe')
-        cwd = get(p, 'cwd')
         args = (get(p, 'cmdline') or []) if with_cmd else []  # type: ignore [var-annotated]
         processes[p.pid] = {
             'pid': p.pid,
@@ -31,7 +30,6 @@ def get_processes(with_cmd=False) -> Dict[int, Dict]:
             'name': p.name(),
             'bytes': b,
             'exe': exe,
-            'dir': cwd,
             'children': [],
             'cmd': ' '.join(quote(s) for s in args),
             'created': p.create_time(),
